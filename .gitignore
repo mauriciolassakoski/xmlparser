@@ -1,0 +1,14 @@
+.classpath
+.project
+.settings/
+target/
+bin/
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.settings/
+.vscode
+
+.metadata

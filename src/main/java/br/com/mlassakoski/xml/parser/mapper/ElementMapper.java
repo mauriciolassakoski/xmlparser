@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Component;
 
-import br.com.mlassakoski.xml.StudantsEnum;
+import br.com.mlassakoski.xml.entities.enums.StudantsEnum;
 
 @Component
-public class StartElementMapper {
+public class ElementMapper {
 
     public StudantsEnum getMap(final String key) {
         HashMap<String, StudantsEnum> map = new HashMap<>();

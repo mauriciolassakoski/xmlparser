@@ -1,18 +1,24 @@
 package br.com.mlassakoski.xml.parser;
 
-import javax.xml.namespace.QName;
 import javax.xml.stream.events.EndElement;
-import javax.xml.stream.events.StartElement;
 
+import br.com.mlassakoski.xml.entities.enums.StudantsEnum;
+import br.com.mlassakoski.xml.entities.interfaces.EndElementParseInterface;
+import br.com.mlassakoski.xml.parser.mapper.ElementMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EndElementParser {
 
-    public void parse(EndElement startElement) {
-        final String name = startElement.getName().getLocalPart();
-        if (name.equalsIgnoreCase("studant")){
-            System.out.println("close studant");
-        }
+    @Autowired
+    private ElementMapper mapper;
+    @Autowired
+    private EndElementParseInterface end;
+
+    public void parse(final EndElement endElement) {
+        final StudantsEnum tag = mapper.getMap(endElement.getName().getLocalPart());
+
+        end.parse(endElement, tag);
     }
 }

@@ -1,7 +1,8 @@
-package br.com.mlassakoski.xml;
+package br.com.mlassakoski.xml.entities.enums;
 
 
 public enum StudantsEnum {
+    STUDANTS,
     STUDANT,
     NAME,
     LASTNAME,

@@ -11,6 +11,7 @@ public class ElementMapper {
 
     public StudantsEnum getMap(final String key) {
         HashMap<String, StudantsEnum> map = new HashMap<>();
+        map.put("studants", StudantsEnum.STUDANTS);
         map.put("studant", StudantsEnum.STUDANT);
         map.put("name", StudantsEnum.NAME);
         map.put("lastname", StudantsEnum.LASTNAME);

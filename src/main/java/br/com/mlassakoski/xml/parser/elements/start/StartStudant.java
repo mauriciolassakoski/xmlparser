@@ -16,9 +16,9 @@ public class StartStudant implements StartElementParseInterface {
     public void parse(final StartElement startElement, final StudantsEnum tag) {
 
         if (tag.equals(STUDANT)) {
-            final String id = startElement.getAttributeByName(QName.valueOf("id")).getValue();
+            final String id = startElement.getAttributeByName(QName.valueOf("code")).getValue();
             System.out.println(tag);
-            System.out.println("open studant with id " + id);
+            System.out.println("open studant with code " + id);
         }
     }
 }

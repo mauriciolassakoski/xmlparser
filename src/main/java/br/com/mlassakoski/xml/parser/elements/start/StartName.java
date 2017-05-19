@@ -1,9 +1,7 @@
 package br.com.mlassakoski.xml.parser.elements.start;
 
 import static br.com.mlassakoski.xml.entities.enums.StudantsEnum.NAME;
-import static br.com.mlassakoski.xml.entities.enums.StudantsEnum.STUDANT;
 
-import javax.xml.namespace.QName;
 import javax.xml.stream.events.StartElement;
 
 import org.springframework.stereotype.Component;

@@ -1,20 +1,20 @@
 <studants>
-    <studant id="1">
+    <studant code="1">
         <name>Mauricio</name>
         <lastname>Lassakoski</lastname>
         <phone>1111-1111</phone>
     </studant>
-    <studant id="2">
+    <studant code="2">
         <name>Gustavo</name>
         <lastname>Henrique</lastname>
         <phone>2222-2222</phone>
     </studant>
-    <studant id="3">
+    <studant code="3">
         <name>Julia</name>
         <lastname>Marques</lastname>
         <phone>3333-3333</phone>
     </studant>
-    <studant id="4">
+    <studant code="4">
         <name>Francisco</name>
         <lastname>Silva</lastname>
         <phone>4444-4444</phone>

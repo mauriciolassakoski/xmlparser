@@ -20,11 +20,11 @@ public class EndElementParser {
     @Autowired
     private EndElementFactory factory;
 
-    public void parse(final EndElement endElement, Studant studant, Deque<StudantsEnum> stack) {
+    public void parse(final EndElement endElement, Studant studant, Deque<StudantsEnum> stack, StringBuilder builder) {
         final StudantsEnum tag = mapper.getTag(endElement.getName().getLocalPart());
         final EndElementParseInterface clazz = factory.getParser(tag);
 
         if (clazz != null)
-            clazz.parse(endElement, tag, stack);
+            clazz.parse(endElement, tag, studant, stack, builder);
     }
 }

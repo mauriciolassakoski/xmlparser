@@ -33,6 +33,7 @@ public class StaxParser {
     public void parseXml() {
         final XMLInputFactory factory = XMLInputFactory.newInstance();
         final Deque<StudantsEnum> stack = new ArrayDeque<>();
+        final StringBuilder builder = new StringBuilder();
 
         try {
             final String fileName = this.getClass().getClassLoader().getResource("files/studants.xml").getFile();
@@ -50,11 +51,11 @@ public class StaxParser {
                         break;
                     case XMLStreamConstants.CHARACTERS:
                         final Characters characters = event.asCharacters();
-                        System.out.println(characters);
+                        builder.append(characters);
                         break;
                     case XMLStreamConstants.END_ELEMENT:
                         final EndElement endElement = event.asEndElement();
-                        endElementParser.parse(endElement, studant, stack);
+                        endElementParser.parse(endElement, studant, stack, builder);
                         break;
                 }
                 System.out.println(studant);

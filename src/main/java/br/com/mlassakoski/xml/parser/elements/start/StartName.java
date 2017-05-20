@@ -6,18 +6,18 @@ import java.util.Deque;
 
 import javax.xml.stream.events.StartElement;
 
+import br.com.mlassakoski.xml.entities.models.ParserDTO;
 import org.springframework.stereotype.Component;
 
 import br.com.mlassakoski.xml.entities.enums.StudantsEnum;
 import br.com.mlassakoski.xml.entities.interfaces.StartElementParseInterface;
-import br.com.mlassakoski.xml.entities.models.Studant;
 
 @Component
 public class StartName implements StartElementParseInterface {
 
     @Override
-    public void parse(final StartElement startElement, final StudantsEnum tag, Studant studant,
-            Deque<StudantsEnum> stack) {
+    public void parse(final StartElement startElement, final StudantsEnum tag,
+                      Deque<StudantsEnum> stack, ParserDTO parserDTO) {
 
         stack.push(NAME);
     }

@@ -38,4 +38,14 @@ public class Studant {
     public void setCode(Integer code) {
         this.code = code;
     }
+
+    @Override
+    public String toString() {
+        return "Studant{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", code=" + code +
+                '}';
+    }
 }

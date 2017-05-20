@@ -14,6 +14,7 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
+import br.com.mlassakoski.xml.entities.models.ParserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +34,8 @@ public class StaxParser {
     public void parseXml() {
         final XMLInputFactory factory = XMLInputFactory.newInstance();
         final Deque<StudantsEnum> stack = new ArrayDeque<>();
-        final StringBuilder builder = new StringBuilder();
+        final ParserDTO parserDTO = new ParserDTO();
+        parserDTO.newBuilder();
 
         try {
             final String fileName = this.getClass().getClassLoader().getResource("files/studants.xml").getFile();
@@ -42,23 +44,21 @@ public class StaxParser {
 
             while (eventReader.hasNext()) {
                 final XMLEvent event = eventReader.nextEvent();
-                final Studant studant = new Studant();
 
                 switch (event.getEventType()) {
                     case XMLStreamConstants.START_ELEMENT:
                         final StartElement startElement = event.asStartElement();
-                        startElementParser.parse(startElement, studant, stack);
+                        startElementParser.parse(startElement, stack, parserDTO);
                         break;
                     case XMLStreamConstants.CHARACTERS:
                         final Characters characters = event.asCharacters();
-                        builder.append(characters);
+                        parserDTO.addToBuilder(characters.asCharacters());
                         break;
                     case XMLStreamConstants.END_ELEMENT:
                         final EndElement endElement = event.asEndElement();
-                        endElementParser.parse(endElement, studant, stack, builder);
+                        endElementParser.parse(endElement, stack, parserDTO);
                         break;
                 }
-                System.out.println(studant);
             }
         } catch (final FileNotFoundException | XMLStreamException e) {
             e.printStackTrace();

@@ -2,7 +2,7 @@ package br.com.mlassakoski.xml.parser.elements.end;
 
 import javax.xml.stream.events.EndElement;
 
-import br.com.mlassakoski.xml.entities.models.Studant;
+import br.com.mlassakoski.xml.entities.models.ParserDTO;
 import org.springframework.stereotype.Component;
 
 import br.com.mlassakoski.xml.entities.enums.StudantsEnum;
@@ -14,8 +14,10 @@ import java.util.Deque;
 public class EndPhone implements EndElementParseInterface {
 
     @Override
-    public void parse(final EndElement endElement, final StudantsEnum tag, Studant studant, Deque<StudantsEnum> stack, StringBuilder builder) {
+    public void parse(final EndElement endElement, final StudantsEnum tag, Deque<StudantsEnum> stack, ParserDTO parserDTO) {
 
+        parserDTO.getStudant().setPhone(parserDTO.getBuilder().toString().trim());
+        parserDTO.clearBuilder();
         stack.pop();
     }
 }

@@ -4,6 +4,7 @@ import javax.xml.stream.events.EndElement;
 
 import br.com.mlassakoski.xml.entities.enums.StudantsEnum;
 import br.com.mlassakoski.xml.entities.interfaces.EndElementParseInterface;
+import br.com.mlassakoski.xml.entities.models.ParserDTO;
 import br.com.mlassakoski.xml.entities.models.Studant;
 import br.com.mlassakoski.xml.parser.mapper.ElementMapper;
 import br.com.mlassakoski.xml.parser.factory.EndElementFactory;
@@ -20,11 +21,11 @@ public class EndElementParser {
     @Autowired
     private EndElementFactory factory;
 
-    public void parse(final EndElement endElement, Studant studant, Deque<StudantsEnum> stack, StringBuilder builder) {
+    public void parse(final EndElement endElement, Deque<StudantsEnum> stack, ParserDTO parserDTO) {
         final StudantsEnum tag = mapper.getTag(endElement.getName().getLocalPart());
         final EndElementParseInterface clazz = factory.getParser(tag);
 
         if (clazz != null)
-            clazz.parse(endElement, tag, studant, stack, builder);
+            clazz.parse(endElement, tag, stack, parserDTO);
     }
 }

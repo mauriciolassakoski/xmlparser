@@ -2,21 +2,23 @@ package br.com.mlassakoski.xml.parser.elements.start;
 
 import static br.com.mlassakoski.xml.entities.enums.StudantsEnum.NAME;
 
+import java.util.Deque;
+
 import javax.xml.stream.events.StartElement;
 
 import org.springframework.stereotype.Component;
 
 import br.com.mlassakoski.xml.entities.enums.StudantsEnum;
 import br.com.mlassakoski.xml.entities.interfaces.StartElementParseInterface;
+import br.com.mlassakoski.xml.entities.models.Studant;
 
 @Component
 public class StartName implements StartElementParseInterface {
 
     @Override
-    public void parse(final StartElement startElement, final StudantsEnum tag) {
+    public void parse(final StartElement startElement, final StudantsEnum tag, Studant studant,
+            Deque<StudantsEnum> stack) {
 
-        if (tag.equals(NAME)) {
-            System.out.println(tag);
-        }
+        stack.push(NAME);
     }
 }

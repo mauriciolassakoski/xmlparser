@@ -1,7 +1,6 @@
 package br.com.mlassakoski.xml.parser.elements.end;
 
-import static br.com.mlassakoski.xml.entities.enums.StudantsEnum.LASTNAME;
-import static br.com.mlassakoski.xml.entities.enums.StudantsEnum.STUDANT;
+import java.util.Deque;
 
 import javax.xml.stream.events.EndElement;
 
@@ -14,10 +13,8 @@ import br.com.mlassakoski.xml.entities.interfaces.EndElementParseInterface;
 public class EndLastName implements EndElementParseInterface {
 
     @Override
-    public void parse(final EndElement endElement, final StudantsEnum tag) {
+    public void parse(final EndElement endElement, final StudantsEnum tag, Deque<StudantsEnum> stack) {
 
-        if (tag.equals(LASTNAME)) {
-            System.out.println(tag);
-        }
+        stack.pop();
     }
 }

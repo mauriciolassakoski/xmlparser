@@ -1,4 +1,4 @@
-package br.com.mlassakoski.xml.parser.mapper;
+package br.com.mlassakoski.xml.parser.factory;
 
 import static br.com.mlassakoski.xml.entities.enums.StudantsEnum.*;
 
@@ -15,7 +15,7 @@ import br.com.mlassakoski.xml.parser.elements.end.EndPhone;
 import br.com.mlassakoski.xml.parser.elements.end.EndStudant;
 
 @Component
-public class EndElementMapper {
+public class EndElementFactory {
 
     @Autowired
     private EndStudant studant;

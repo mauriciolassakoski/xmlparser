@@ -21,7 +21,7 @@ public class XlsxParser {
     public void parse() {
 
         try {
-            final String fileName = this.getClass().getClassLoader().getResource("files/studants.xml").getFile();
+            final String fileName = this.getClass().getClassLoader().getResource("files/studants.xlsx").getFile();
             final InputStream inputStream = new FileInputStream(new File(fileName));
             final Workbook workbook = getWorkBook(inputStream);
 

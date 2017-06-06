@@ -44,11 +44,12 @@
             <version>1.0.1</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.projectlombok</groupId>-->
-        <!--<artifactId>lombok-maven</artifactId>-->
-        <!--<version>1.16.14.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.monitorjbl</groupId>
@@ -95,9 +96,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.3.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
 
 </project>
